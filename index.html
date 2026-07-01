@@ -161,14 +161,14 @@
             <span class="live-dot"></span> LIVE BROADCAST
         </div>
         
-        <!-- Main Required Headers -->
+        <!-- Required Headings -->
         <h1>WATCH WC HERE</h1>
         <p class="subtitle">Your portal for live football tracking. Activate the transmission below to unlock your player.</p>
         
-        <!-- Visual Anchor Box (replaces the broken iframe) -->
+        <!-- Player Placeholder Box -->
         <div class="player-mockup">
             <div class="player-overlay-content">
-                <!-- Direct Stream Button Trigger -->
+                <!-- Stream Trigger Button -->
                 <button class="stream-btn" id="secureStreamLink">
                     📺 Click to Watch Live
                 </button>
@@ -181,14 +181,13 @@
         document.addEventListener('DOMContentLoaded', () => {
             const launchBtn = document.getElementById('secureStreamLink');
             
-            // Core Target Stream URL
-            const streamUrl = "https://streameaste.cc";
+            // Updated Target URL
+            const streamUrl = "https://knatech.info/streams/mexico-vs-ecuador";
 
             launchBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                // Launches a controlled window overlay to bypass connection refusal
-                // This keeps your original website open and visible in the background
+                // Launches the window wrapper so your underlying website stays open
                 window.open(
                     streamUrl, 
                     "LiveStreamPlayer", 
