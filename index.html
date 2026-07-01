@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Live Sports</title>
+    <style>
+        /* Modern Reset and Theme Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Container Card styling */
+        .stream-card {
+            background: linear-gradient(145deg, #111827, #1f2937);
+            border: 2px solid #374151;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Live Indicator Badge */
+        .live-badge {
+            background-color: #ef4444;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+        /* Headings */
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Embedded Player Frame Container */
+        .player-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 2px solid #3b82f6;
+            background-color: #000000;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .player-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Interactive Activation Button */
+        .stream-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 14px 28px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        .stream-btn:hover {
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            transform: scale(1.02);
+        }
+
+        .stream-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.85; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stream-card">
+        <div class="live-badge">
+            <span class="live-dot"></span> LIVE NOW
+        </div>
+        
+        <!-- Main Header -->
+        <h1>WATCH WC HERE</h1>
+        
+        <!-- Subtitle/Instructions -->
+        <p class="subtitle">Please click on the button below to load and watch the live broadcast inside this window.</p>
+        
+        <!-- Interactive Load Button -->
+        <button class="stream-btn" id="loadStreamBtn">
+            📺 Click Here to Load Stream
+        </button>
+
+        <!-- Video Player Display Box -->
+        <div class="player-container">
+            <!-- The iframe remains blank until the button is clicked to optimize performance -->
+            <iframe id="videoFrame" src="about:blank" allowfullscreen scrolling="no" allow="autoplay; encrypted-media"></iframe>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadButton = document.getElementById('loadStreamBtn');
+            const videoFrame = document.getElementById('videoFrame');
+            
+            // Your target internal stream link
+            const targetUrl = "https://streameaste.cc";
+
+            loadButton.addEventListener('click', () => {
+                // Change frame source to load the link internally
+                videoFrame.src = targetUrl;
+                
+                // Optional visual button feedback
+                loadButton.textContent = "🔄 Reloading Stream...";
+                setTimeout(() => {
+                    loadButton.textContent = "✅ Playing Live Stream";
+                }, 1000);
+            });
+        });
+    </script>
+
+</body>
+</html>
